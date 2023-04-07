@@ -1,0 +1,19 @@
+#' Schedule and outcomes of SWAC volleyball
+#'
+#' Table showing data on matches, including schedule and outcome for SWAC institutions for seasons between 2012 and 2022, inclusive
+#'
+#' @format A tibble with 2832 rows and 10 variables:
+#' \describe{
+#'   \item{season}{chr Year designation of season}
+#'   \item{date}{Date Full date of match}
+#'   \item{team}{chr Name of team 1 }
+#'   \item{opponent}{chr Name of team 2}
+#'   \item{team_result}{num Number of matches won by team 1}
+#'   \item{opponent_result}{num Number of matches won by team 2}
+#'   \item{tournament}{chr Name of tournament, if relevant}
+#'   \item{conference}{logi Indicates whether team and opponent were both SWAC member institutions}
+#'   \item{location}{chr City and state where teams played}
+#'   \item{team_venue}{Factor Where possible, presumed venue status of team 1, including "Home" or "Away". Status of "Neutral" is used for tournaments.}
+#' }
+#' @source \url{https://swac.org/calendar.aspx?path=wvball}
+"swac_volleyball"
