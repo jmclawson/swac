@@ -303,7 +303,8 @@ football_homecomings <-
   )) |>
   select(-note, -against)
 
-football <- football_homecomings
+football <- football_homecomings |>
+  mutate(season = as.numeric(season))
 
 saveRDS(football, file = "swac_football.rds")
 
@@ -349,9 +350,8 @@ stadiums <- tribble(
 usethis::use_data(stadiums, overwrite = TRUE)
 
 gram19_football <-
-  swac_football |>
-  filter(season == "2019", team == "Grambling State") |>
-  mutate(season = factor("2019"))
+  football |>
+  filter(season == 2019, team == "Grambling State")
 
 usethis::use_data(gram19_football, overwrite = TRUE)
 
