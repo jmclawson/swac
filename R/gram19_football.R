@@ -4,7 +4,7 @@
 #'
 #' @format A tibble with 11 rows and 10 variables:
 #' \describe{
-#'   \item{season}{Factor Year designation of season}
+#'   \item{season}{num Year designation of season}
 #'   \item{date}{Date Full date of game}
 #'   \item{team}{chr Name of team 1, which is always Grambling}
 #'   \item{opponent}{chr Name of Grambling's opponent}

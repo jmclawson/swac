@@ -304,7 +304,7 @@ football_homecomings <-
   select(-note, -against)
 
 football <- football_homecomings |>
-  mutate(season = as.numeric(season))
+  mutate(season = as.numeric(as.character(season)))
 
 saveRDS(football, file = "swac_football.rds")
 
