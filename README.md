@@ -4,4 +4,6 @@ data package related to HBCUs in the Southwestern Athletic Conference
 ## Installation
 
 Install this package from GitHub with the following code:
-`remotes::install_github("jmclawson/swac")`
+```{r}
+remotes::install_github("jmclawson/swac")
+```
