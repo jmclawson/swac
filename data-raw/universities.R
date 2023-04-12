@@ -105,7 +105,7 @@ colors <- tribble(
   nest(.by = institution,
        .key = "colors")
 
-swac_universities <- data.frame(
+universities <- data.frame(
   formerly,
   full_name = unique(swac_members$current_name),
   founded = c(1881, 1872, 1876, 1875, 1894,
@@ -188,7 +188,7 @@ swac_universities <- data.frame(
   relocate(formerly, .after = state) |>
   relocate(colors, .after = team_name)
 
-swac_universities <- swac_universities |>
+universities <- universities |>
   as_tibble()
 
-usethis::use_data(swac_universities, overwrite = TRUE)
+usethis::use_data(universities, overwrite = TRUE)

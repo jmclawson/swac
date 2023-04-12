@@ -18,4 +18,4 @@
 #'   \item{funding}{chr Indicates whether institution is publicly or privately funded}
 #'   \item{note}{chr Any further explanations, where needed}
 #' }
-"swac_universities"
+"universities"

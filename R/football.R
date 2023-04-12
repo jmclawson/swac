@@ -17,4 +17,4 @@
 #' }
 #' @source \url{https://swac.org/stats.aspx?path=football}
 #' @source \url{https://fbschedules.com/swac-football-schedule}
-"swac_football"
+"football"

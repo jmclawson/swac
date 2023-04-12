@@ -286,9 +286,9 @@ volleyball <-
     TRUE ~ NA)) |>
   select(-home_team, -home_opponent)
 
-swac_volleyball <- volleyball |>
+volleyball <- volleyball |>
   mutate(team_result = as.numeric(team_result),
          opponent_result = as.numeric(opponent_result),
          team_venue = factor(team_venue))
 
-usethis::use_data(swac_volleyball, overwrite = TRUE)
+usethis::use_data(volleyball, overwrite = TRUE)

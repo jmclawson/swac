@@ -8,4 +8,4 @@
 #'   \item{text}{chr Lyrics of alma mater, with line and stanza separations included}
 #' }
 #' @source \url{https://en.wikipedia.org/wiki/Southwestern_Athletic_Conference}
-"swac_almamaters"
+"almamaters"

@@ -8,4 +8,4 @@
 #'   \item{lat}{num Latitude of stadium, expressed in degrees north of the equator}
 #'   \item{lon}{num Longitude of stadium, with negative numbers showing degrees west of the prime meridian}
 #' }
-"swac_stadiums"
+"stadiums"

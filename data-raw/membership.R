@@ -1,5 +1,5 @@
 
-swac_membership <- {"1920 - Bishop College - Bishop College - founded -  founding of SWAC, effective beginning the 1920–21 academic year
+membership <- {"1920 - Bishop College - Bishop College - founded -  founding of SWAC, effective beginning the 1920–21 academic year
 1920 - Paul Quinn College - Paul Quinn College - founded - founding of SWAC, effective beginning the 1920–21 academic year
 1920 - Prairie View State Normal & Industrial College - Prairie View A&M University - founded - founding of SWAC, effective beginning the 1920–21 academic year
 1920 - Samuel Huston College - Huston–Tillotson University - founded - founding of SWAC, effective beginning the 1920–21 academic year
@@ -36,6 +36,6 @@ swac_membership <- {"1920 - Bishop College - Bishop College - founded -  foundin
   mutate(action = factor(action),
          year = as.integer(year))
 
-swac_membership <- as_tibble(swac_membership)
+membership <- as_tibble(membership)
 
-usethis::use_data(swac_membership, overwrite = TRUE)
+usethis::use_data(membership, overwrite = TRUE)

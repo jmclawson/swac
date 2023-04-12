@@ -303,16 +303,16 @@ football_homecomings <-
   )) |>
   select(-note, -against)
 
-swac_football <- football_homecomings
+football <- football_homecomings
 
-saveRDS(swac_football, file = "swac_football.rds")
+saveRDS(football, file = "swac_football.rds")
 
-usethis::use_data(swac_football, overwrite = TRUE)
+usethis::use_data(football, overwrite = TRUE)
 
 
 ########## Geolocation for most-visited stadiums
 
-swac_stadiums <- tribble(
+stadiums <- tribble(
   ~lat,       ~lon, ~stadium,
   32.3296, -90.1798, "MS Veterans Memorial Stadium, Jackson, MS",
   31.8736, -91.1351, "Jack Spinks Stadium, Lorman, MS",
@@ -346,7 +346,7 @@ swac_stadiums <- tribble(
   arrange(lon) |>
   relocate(stadium)
 
-usethis::use_data(swac_stadiums, overwrite = TRUE)
+usethis::use_data(stadiums, overwrite = TRUE)
 
 gram19_football <-
   swac_football |>

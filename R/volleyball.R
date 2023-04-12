@@ -16,4 +16,4 @@
 #'   \item{team_venue}{Factor Where possible, presumed venue status of team 1, including "Home" or "Away". Status of "Neutral" is used for tournaments.}
 #' }
 #' @source \url{https://swac.org/calendar.aspx?path=wvball}
-"swac_volleyball"
+"volleyball"

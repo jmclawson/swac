@@ -11,4 +11,4 @@
 #'   \item{note}{chr Any further explanation}
 #' }
 #' @source \url{https://en.wikipedia.org/wiki/Southwestern_Athletic_Conference}
-"swac_membership"
+"membership"

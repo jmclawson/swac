@@ -26,7 +26,7 @@ tidy_poetry_texts <- function(
   full_poetry
 }
 
-swac_almamaters <-
+almamaters <-
   tidy_poetry_texts("data-raw/sourcefiles/almamaters",
                     word = FALSE) |>
   rename(university = document) |>
@@ -34,4 +34,4 @@ swac_almamaters <-
   summarize(text = paste0(text, collapse = "\n")) |>
   summarize(text = paste0(text, collapse = "\n\n"))
 
-usethis::use_data(swac_almamaters, overwrite = TRUE)
+usethis::use_data(almamaters, overwrite = TRUE)
