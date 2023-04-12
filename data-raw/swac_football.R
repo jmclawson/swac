@@ -348,6 +348,13 @@ swac_stadiums <- tribble(
 
 usethis::use_data(swac_stadiums, overwrite = TRUE)
 
+gram19_football <-
+  swac_football |>
+  filter(season == "2019", team == "Grambling State") |>
+  mutate(season = factor("2019"))
+
+usethis::use_data(gram19_football, overwrite = TRUE)
+
 # AlabamaAM <-
 #   read.csv("~/Downloads/gsu-football/swac2019/AlabamaAM-Table 1.csv",
 #            stringsAsFactors = FALSE,

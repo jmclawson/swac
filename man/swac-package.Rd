@@ -6,7 +6,7 @@
 \alias{swac-package}
 \title{swac: Southwest Athletic Conference (SWAC) Data}
 \description{
-Data on current and former SWAC institutions, including membership, sports records, location, metadata, and alma maters.
+Data on current and former SWAC institutions, including membership, sports records, location, metadata, and lyrics of alma maters.
 }
 \author{
 \strong{Maintainer}: James Clawson \email{clawson@gmail.com}
