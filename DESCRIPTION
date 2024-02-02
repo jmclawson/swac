@@ -16,3 +16,5 @@ Depends:
 LazyData: true
 Imports: 
     tibble
+URL: https://github.com/jmclawson/swac
+BugReports: https://github.com/jmclawson/swac/issues
