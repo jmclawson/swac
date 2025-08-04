@@ -4,7 +4,7 @@
 #'
 #' @format A tibble with 18 rows and 13 variables:
 #' \describe{
-#'   \item{id} {chr Institutional ID assigned by U.S. Department of Education}
+#'   \item{id}{chr Institutional ID assigned by U.S. Department of Education}
 #'   \item{name}{chr Institutional name}
 #'   \item{abbrev}{chr Abbreviated name for convenience}
 #'   \item{founded}{num Year of founding}
