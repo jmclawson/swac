@@ -8,6 +8,14 @@
 \description{
 Data on current and former SWAC institutions, including membership, sports records, location, metadata, and lyrics of alma maters.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/jmclawson/swac}
+  \item Report bugs at \url{https://github.com/jmclawson/swac/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: James Clawson \email{clawson@gmail.com}
 
