@@ -191,4 +191,99 @@ universities <- data.frame(
 universities <- universities |>
   as_tibble()
 
+# 2025 corrections and updates, from {scorecard-db} and adding DOE ids
+
+if (!file.exists("data-raw/sourcefiles/scorecard-db/scorecard.rds")) {
+  download.file("https://github.com/gadenbuie/scorecard-db/raw/refs/heads/main/data/tidy/scorecard.rds", "data-raw/sourcefiles/scorecard-db/scorecard.rds")
+}
+
+if (!file.exists("data-raw/sourcefiles/scorecard-db/school.rds")) {
+  download.file("https://github.com/gadenbuie/scorecard-db/raw/refs/heads/main/data/tidy/school.rds", "data-raw/sourcefiles/scorecard-db/school.rds")
+}
+
+scorecard <- readRDS("data-raw/sourcefiles/scorecard-db/scorecard.rds")
+school <- readRDS("data-raw/sourcefiles/scorecard-db/school.rds")
+
+universities_corrected <-
+  universities |>
+  mutate(
+    city = case_when(
+      institution == "Alabama A&M" ~ "Normal",
+      .default = city),
+    full_name = case_when(
+      institution == "Wiley" ~ "Wiley University",
+      .default = full_name
+    )
+  )
+
+universities_corrected$formerly[[which(universities_corrected$institution == "Alabama A&M")]] <- universities_corrected$formerly[[which(universities_corrected$institution == "Alabama A&M")]] |>
+  add_row(
+    former_city = "Normal",
+    former_name = "State Normal and Industrial School of Huntsville",
+    from = "1890",
+    until = "1896") |>
+  arrange(from, until) |>
+  mutate(
+    from = as.integer(from),
+    until = as.integer(until),
+    former_city = if_else(from >= 1890, "Normal", "Huntsville"),
+    until = if_else(from == 1885, 1890, until)
+  )
+
+universities_corrected$formerly[[which(universities_corrected$institution == "Wiley")]] <- universities_corrected$formerly[[which(universities_corrected$institution == "Wiley")]] |>
+  add_row(
+    former_city = "Marshall",
+    former_name = "Wiley College",
+    from = "1929",
+    until = "2023"
+  )
+
+universities <- universities_corrected |>
+  mutate(
+    website = case_when(
+      institution == "Wiley" ~ str_remove_all(website, "www."),
+      .default = website)) |>
+  rename(
+    common = institution,
+    name = full_name,
+    url = website,
+    mascot = team_name) |>
+  select(-funding) |>
+  mutate(
+    abbrev = url |>
+      str_remove_all("^www.") |>
+      str_remove_all(".edu$") |>
+      {\(x) if_else(
+        is.na(x), "bishop", x)}(),
+    url = if_else(
+      !is.na(url),
+      paste0("https://", url, "/"),
+      NA_character_
+    )) |>
+  rowwise() |>
+  mutate(
+    mascot = mascot |>
+      strsplit(" / ") |>
+      unlist() |>
+      map_chr(str_squish) |>
+      list()) |>
+  ungroup() |>
+  select(
+    abbrev, swac_name = name,
+    founded, formerly,
+    state,
+    mascot, colors, url, note) |>
+  left_join(
+    school |>
+      filter(!is.na(url))) |>
+  arrange(founded) |>
+  mutate(name = if_else(is.na(name), swac_name, name)) |>
+  select(-swac_name) |>
+  relocate(
+    id, name, abbrev, founded) |>
+  relocate(
+    city, state,
+    .before = formerly) |>
+  select(id:note)
+
 usethis::use_data(universities, overwrite = TRUE)
